@@ -24,6 +24,8 @@ GOTO :error1
 :InstallSpicetify
 cls
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression"
+echo WScript.Sleep(5000) >"%temp%\sleep.vbs"
+cscript "%temp%\sleep.vbs"
 spicetify
 cls
 GOTO InstallSpicetifyStep2
