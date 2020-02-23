@@ -26,7 +26,7 @@ cls
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression"
 echo WScript.Sleep(5000) >"%temp%\sleep.vbs"
 cscript "%temp%\sleep.vbs"
-spicetify
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe
 cls
 GOTO InstallSpicetifyStep2
 :InstallSpicetifyStep2
@@ -55,10 +55,10 @@ SET /p whichtheme="Voici tous les themes disponibles, choissisez-en un, et entre
 IF '%whichtheme%'=='' SET whichtheme = 
 IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
 SET whichtheme=%whichtheme%
-spicetify config current_theme %whichtheme%
-spicetify backup
-spicetify apply
-spicetify update
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
 SET /p=Appuyez sur la touche Enter pour retourner au menu...
 cls
 GOTO menu
@@ -69,9 +69,9 @@ cls
 %SystemRoot%\explorer.exe "C:\%HOMEPATH%\spicetify-cli\Themes\SpicetifyDefault"
 echo Faites les modifications de couleurs dans color.ini et les modifications du css dans user.css
 SET /p=Puis appuyez sur la touche Enter pour continuer...
-spicetify backup
-spicetify apply
-spicetify update
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
 cls
 SET /p=Appuyez sur la touche Enter pour retourner au menu...
 cls
@@ -86,10 +86,10 @@ SET /p whichtheme="Voici tous les themes disponibles, choissisez-en un, et entre
 IF '%whichtheme%'=='' SET whichtheme = 
 IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
 SET whichtheme=%whichtheme%
-spicetify config current_theme %whichtheme%
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
 cls
-spicetify backup
-spicetify apply
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
 SET /p=Appuyez sur la touche Enter pour retourner au menu...
 cls
@@ -98,7 +98,7 @@ GOTO menu
 ::Restaure le theme de base de Spotify
 :RestoreSpotify
 cls
-spicetify restore backup
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe restore backup
 cls
 SET /p=Appuyez sur la touche Enter pour retourner au menu...
 cls
@@ -120,7 +120,7 @@ GOTO :error3
 ::Active le DevTool
 :EnableDevTool
 cls
-spicetify enable-devtool
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
 cls
 SET /p=Appuyez sur la touche Enter pour retourner au menu...
 cls
@@ -129,7 +129,7 @@ GOTO menu
 ::Desactive le DevTool
 :DisableDevTool
 cls
-spicetify disable-devtool
+C:\%HOMEPATH%\spicetify-cli\spicetify.exe disable-devtool
 cls
 SET /p=Appuyez sur la touche Enter pour retourner au menu...
 cls
