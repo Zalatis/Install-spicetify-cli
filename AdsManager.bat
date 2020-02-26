@@ -1,5 +1,5 @@
 @echo off
-Title Install Spicetify, Script made by Zalati
+Title AdsManager, Script made by Zalati
 REM  --> Verification des permissions admin
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
