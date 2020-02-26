@@ -37,6 +37,9 @@ C:\%HOMEPATH%\Downloads\SpotifySetup.exe /Silent
 cls
 del /Q /S C:\%HOMEPATH%\Downloads\SpotifySetup.exe
 cls
+echo *************************************************
+echo *      l'installation de Spotify est fini !     *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
@@ -52,6 +55,9 @@ cls
 GOTO InstallSpicetifyStep2
 ::Step2
 :InstallSpicetifyStep2
+echo *************************************************
+echo *   Installation de themes pour Spicetify... ?  *
+echo *************************************************
 echo Que voulez-vous faire ? (Repondez avec le numero) : 
 echo 1 - Installer des themes
 echo 2 - Ne pas installer de themes
@@ -82,6 +88,9 @@ C:\%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
+echo *************************************************
+echo *             Profitez de Spotify !             *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
@@ -92,11 +101,15 @@ GOTO menu
 cls
 %SystemRoot%\explorer.exe "C:\%HOMEPATH%\spicetify-cli\Themes\SpicetifyDefault"
 echo Faites les modifications de couleurs dans color.ini et les modifications du css dans user.css
+echo.
 SET /p=Puis appuyez sur la touche Enter pour continuer...
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
 cls
+echo *************************************************
+echo *             Profitez de Spotify !             *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
@@ -116,6 +129,9 @@ cls
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
+echo *************************************************
+echo *             Profitez de Spotify !             *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
@@ -126,6 +142,9 @@ GOTO menu
 cls
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe restore backup
 cls
+echo *************************************************
+echo *              Spotify, le retour !             *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
@@ -150,6 +169,9 @@ GOTO :error3
 cls
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
 cls
+echo *************************************************
+echo *      Le DevTool est maintenant actif !        *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
@@ -160,6 +182,9 @@ GOTO menu
 cls
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe disable-devtool
 cls
+echo *************************************************
+echo *     Le DevTool est maintenant inactif !       *
+echo *************************************************
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 cls
