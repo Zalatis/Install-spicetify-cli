@@ -6,7 +6,7 @@ echo --------------------
 echo -- Menu du Script --
 echo --------------------
 echo.
-echo Que voulez-vous faire ? (Repondes avec le numero)
+echo Que voulez-vous faire ? (Repondez avec le numero)
 echo 1 - Installer Spotify
 echo 2 - Installer Spicetify
 echo 3 - Installer/Update les themes
