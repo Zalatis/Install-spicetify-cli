@@ -194,7 +194,7 @@ GOTO menu
 ::Menu bloqueur de pubs
 :DisableAdsMenu
 cls
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://raw.githubusercontent.com/Zalatis/Install-spicetify-cli/master/AdsManagerFR.bat -Destination C:\%HOMEPATH%\Downloads\AdsManager.bat"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://raw.githubusercontent.com/Zalatis/Install-spicetify-cli/master/AdsManagerFR.bat -Destination C:\%HOMEPATH%\Downloads\AdsManagerFR.bat"
 call C:\%HOMEPATH%\Downloads\AdsManagerFR.bat
 cls
 echo *************************************************
