@@ -3815,7 +3815,7 @@ echo *         Lancement de Spotify.exe...           *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Notice: Spotify.exe introuvable, lancez le manuellement.
 IF EXIST %appdata%\Spotify\Spotify.exe start %appdata%\Spotify\Spotify.exe
-del /Q /S C:\%HOMEPATH%\Downloads\AdsManager.bat
+del "C:\%HOMEPATH%\Downloads\AdsManagerFR.bat" /S /F /Q
 cls
 echo *************************************************
 echo *                                               *
@@ -3837,7 +3837,7 @@ cls
 echo *************************************************
 echo *        Suppresion du fichier hosts...         *
 echo *************************************************
-del /f /q %SystemRoot%\system32\drivers\etc\hosts
+del "%SystemRoot%\system32\drivers\etc\hosts" /S /F /Q
 cls
 echo *************************************************
 echo *        Restauration du fichier hosts...       *
@@ -3847,7 +3847,7 @@ IF NOT EXIST %SystemRoot%\system32\drivers\etc\hosts.backup echo # Copyright (c)
 echo *************************************************
 echo *     Suppresion du fichier backup hosts...     *
 echo *************************************************
-del /f /q %SystemRoot%\system32\drivers\etc\hosts.backup
+del "%SystemRoot%\system32\drivers\etc\hosts.backup" /S /F /Q
 cls
 echo *************************************************
 echo *        Renouvellement du Cache DNS ...        *
@@ -3859,7 +3859,7 @@ echo *         Lancement de Spotify.exe...           *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Notice: Spotify.exe introuvable, lancez le manuellement.
 IF EXIST %appdata%\Spotify\Spotify.exe start %appdata%\Spotify\Spotify.exe
-del /Q /S C:\%HOMEPATH%\Downloads\AdsManager.bat
+del "C:\%HOMEPATH%\Downloads\AdsManagerFR.bat" /S /F /Q
 cls
 echo *************************************************
 echo *                                               *
