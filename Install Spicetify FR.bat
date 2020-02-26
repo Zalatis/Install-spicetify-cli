@@ -35,7 +35,7 @@ cls
 cls
 C:\%HOMEPATH%\Downloads\SpotifySetup.exe /Silent
 cls
-del /Q /S C:\%HOMEPATH%\Downloads\SpotifySetup.exe
+del "C:\%HOMEPATH%\Downloads\SpotifySetup.exe" /S /F /Q
 cls
 echo *************************************************
 echo *      l'installation de Spotify est fini !     *
@@ -76,8 +76,8 @@ cls
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive C:\%HOMEPATH%\.spicetify\themes.zip C:\%HOMEPATH%\.spicetify\Themes"
 ECHO Veuillez patienter pendant le telechargement des themes.
 robocopy C:\%HOMEPATH%\.spicetify\Themes\spicetify-themes-master C:\%HOMEPATH%\.spicetify\Themes\ *.* /E /XD %HOMEPATH\.spicetify\Themes\ /move
-del /Q /S "C:\%HOMEPATH%\.spicetify\themes.zip" "C:\%HOMEPATH%\.spicetify\Themes\.gitignore" "C:\%HOMEPATH%\.spicetify\Themes\CODE_OF_CONDUCT.md" "C:\%HOMEPATH%\.spicetify\Themes\LICENSE" "C:\%HOMEPATH%\.spicetify\Themes\README.md"
-@RD /S /Q C:\%HOMEPATH%\.spicetify\Themes\spicetify-themes-master
+del /Q /S /F "C:\%HOMEPATH%\.spicetify\themes.zip" "C:\%HOMEPATH%\.spicetify\Themes\.gitignore" "C:\%HOMEPATH%\.spicetify\Themes\CODE_OF_CONDUCT.md" "C:\%HOMEPATH%\.spicetify\Themes\LICENSE" "C:\%HOMEPATH%\.spicetify\Themes\README.md"
+@RD /S /Q /F C:\%HOMEPATH%\.spicetify\Themes\spicetify-themes-master
 start https://github.com/morpheusthewhite/spicetify-themes
 cls
 SET /p whichtheme="Voici tous les themes disponibles, choissisez-en un, et entrez son nom (La casse est prise en compte) : "
@@ -194,6 +194,8 @@ GOTO menu
 ::Menu bloqueur de pubs
 :DisableAdsMenu
 cls
+Rem Suppression de l'ancienne version de AdsManager
+del "C:\%HOMEPATH%\Downloads\AdsManagerFR.bat" /S /F /Q
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://raw.githubusercontent.com/Zalatis/Install-spicetify-cli/master/AdsManagerFR.bat -Destination C:\%HOMEPATH%\Downloads\AdsManagerFR.bat"
 call C:\%HOMEPATH%\Downloads\AdsManagerFR.bat
 cls
