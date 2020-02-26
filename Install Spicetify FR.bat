@@ -195,9 +195,9 @@ echo 1 - Desactiver les pubs
 echo 2 - Reactiver les pubs
 echo.
 SET /p reponse4="Votre choix : "
-If /i "%reponse2%"=="1" GOTO DisableAds
-If /i "%reponse2%"=="2" GOTO RestoreAds
-ECHO "%reponse2%" n'est pas valide !
+If /i "%reponse4%"=="1" GOTO DisableAds
+If /i "%reponse4%"=="2" GOTO RestoreAds
+ECHO "%reponse4%" n'est pas valide !
 GOTO :error4
 
 :DisableAds
