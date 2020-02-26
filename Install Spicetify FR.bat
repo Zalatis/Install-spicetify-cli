@@ -88,6 +88,7 @@ C:\%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
 C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
+cls
 echo *************************************************
 echo *             Profitez de Spotify !             *
 echo *************************************************
