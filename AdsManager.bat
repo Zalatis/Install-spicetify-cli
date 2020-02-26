@@ -3808,7 +3808,7 @@ echo *         Lancement de Spotify.exe...           *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Notice: Spotify.exe introuvable, lancez le manuellement.
 IF EXIST %appdata%\Spotify\Spotify.exe start %appdata%\Spotify\Spotify.exe
-echo.
+del /Q /S C:\%HOMEPATH%\Downloads\AdsManager.bat
 cls
 echo *************************************************
 echo *                                               *
@@ -3852,6 +3852,7 @@ echo *         Lancement de Spotify.exe...           *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Notice: Spotify.exe introuvable, lancez le manuellement.
 IF EXIST %appdata%\Spotify\Spotify.exe start %appdata%\Spotify\Spotify.exe
+del /Q /S C:\%HOMEPATH%\Downloads\AdsManager.bat
 cls
 echo *************************************************
 echo *                                               *
