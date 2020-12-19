@@ -80,7 +80,7 @@ del /Q /S /F "C:\%HOMEPATH%\.spicetify\themes.zip" "C:\%HOMEPATH%\.spicetify\The
 @RD /S /Q /F C:\%HOMEPATH%\.spicetify\Themes\spicetify-themes-master
 start https://github.com/morpheusthewhite/spicetify-themes
 cls
-SET /p whichtheme="Voici tous les themes disponibles, choissisez-en un, et entrez son nom (La casse est prise en compte) : "
+SET /p whichtheme="Voici tous les themes disponibles, choisissez-en un, et entrez son nom (La casse est prise en compte) : "
 IF '%whichtheme%'=='' SET whichtheme = 
 IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
 SET whichtheme=%whichtheme%
@@ -121,7 +121,7 @@ GOTO menu
 cls
 start https://github.com/morpheusthewhite/spicetify-themes
 cls
-SET /p whichtheme="Voici tous les themes disponibles, choissisez-en un, et entrez son nom (La casse est prise en compte), pour appliquer le theme actuel vous devez juste appuyez sur la touche Enter : "
+SET /p whichtheme="Voici tous les themes disponibles, choisissez-en un, et entrez son nom (La casse est prise en compte), pour appliquer le theme actuel vous devez juste appuyez sur la touche Enter : "
 IF '%whichtheme%'=='' SET whichtheme = 
 IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
 SET whichtheme=%whichtheme%
