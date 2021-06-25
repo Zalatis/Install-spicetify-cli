@@ -1,24 +1,23 @@
 @echo off
-chcp 65001
 cls
 Title Install Spicetify, Script made by Zalati
 :language
 cls
 echo *************************************************
 echo *                                               *
-echo * Chose your language â€– Choisissez votre langue *
+echo * Chose your language º Choisissez votre langue *
 echo *                                               *
 echo *************************************************
 echo.
 echo 1 - English
-echo 2 - FranÃ§ais
+echo 2 - Fran‡ais
 echo.
-SET /p selectedlanguage="Your choiceâ€–Votre choix : "
+SET /p selectedlanguage="Your choiceºVotre choix : "
 If /i "%selectedlanguage%"=="1" goto :menu
 If /i "%selectedlanguage%"=="2" goto :menu
 echo.
-echo "%selectedlanguage%" is not a valid numberâ€–n'est pas un numÃ©ro valide !
-echo Press any key to return to the menuâ€–Appuyez sur une touche pour retourner au menu.
+echo "%selectedlanguage%" is not a valid numberºn'est pas un num‚ro valide !
+echo Press any key to return to the menuºAppuyez sur une touche pour retourner au menu.
 pause > nul
 cls
 goto language
@@ -45,11 +44,11 @@ If /i "%selectedlanguage%"=="1" echo 9 - Quit
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ?
 If /i "%selectedlanguage%"=="2" echo 1 - Installer Spotify
 If /i "%selectedlanguage%"=="2" echo 2 - Installer Spicetify
-If /i "%selectedlanguage%"=="2" echo 3 - Installer/Update les thÃ¨mes
-If /i "%selectedlanguage%"=="2" echo 4 - Re-Appliquer ou changer le thÃ¨me
-If /i "%selectedlanguage%"=="2" echo 5 - Remettre le thÃ¨me de base de Spotify
-If /i "%selectedlanguage%"=="2" echo 6 - Activer/DÃ©sactiver le devtool
-If /i "%selectedlanguage%"=="2" echo 7 - Bloquer/DÃ©bloquer les pubs (version test)
+If /i "%selectedlanguage%"=="2" echo 3 - Installer/Update les thŠmes
+If /i "%selectedlanguage%"=="2" echo 4 - Re-Appliquer ou changer le thŠme
+If /i "%selectedlanguage%"=="2" echo 5 - Remettre le thŠme de base de Spotify
+If /i "%selectedlanguage%"=="2" echo 6 - Activer/D‚sactiver le devtool
+If /i "%selectedlanguage%"=="2" echo 7 - Bloquer/D‚bloquer les pubs (version test)
 If /i "%selectedlanguage%"=="2" echo 8 - Changer de langue
 If /i "%selectedlanguage%"=="2" echo 9 - Quitter
 echo.
@@ -66,7 +65,7 @@ If /i "%reponse1%"=="8" goto :language
 If /i "%reponse1%"=="9" exit
 echo.
 If /i "%selectedlanguage%"=="1" echo "%reponse1%" is not a valid number !
-If /i "%selectedlanguage%"=="2" echo "%reponse1%" n'est pas un numÃ©ro valide !
+If /i "%selectedlanguage%"=="2" echo "%reponse1%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
@@ -111,8 +110,8 @@ If /i "%selectedlanguage%"=="1" echo What do you want to do ?
 If /i "%selectedlanguage%"=="1" echo 1 - Install themes
 If /i "%selectedlanguage%"=="1" echo 2 - Do not install themes
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ? 
-If /i "%selectedlanguage%"=="2" echo 1 - Installer des thÃ¨mes
-If /i "%selectedlanguage%"=="2" echo 2 - Ne pas installer de thÃ¨mes
+If /i "%selectedlanguage%"=="2" echo 1 - Installer des thŠmes
+If /i "%selectedlanguage%"=="2" echo 2 - Ne pas installer de thŠmes
 echo.
 If /i "%selectedlanguage%"=="1" SET /p reponse2="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p reponse2="Votre choix : "
@@ -120,7 +119,7 @@ If /i "%reponse2%"=="1" goto DownloadThemes
 If /i "%reponse2%"=="2" goto NoDownloadThemes
 echo.
 If /i "%selectedlanguage%"=="1" echo "%reponse2%" is not a valid number !
-If /i "%selectedlanguage%"=="2" echo "%reponse2%" n'est pas un numÃ©ro valide !
+If /i "%selectedlanguage%"=="2" echo "%reponse2%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
@@ -129,7 +128,7 @@ goto InstallSpicetifyStep2
 :DownloadThemes
 cls
 If /i "%selectedlanguage%"=="1" ECHO Please wait while downloading themes.
-If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le tÃ©lÃ©chargement des thÃ¨mes.
+If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le t‚l‚chargement des thŠmes.
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://github.com/morpheusthewhite/spicetify-themes/archive/master.zip -Destination %HOMEPATH%\.spicetify\themes.zip"
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive %HOMEPATH%\.spicetify\themes.zip %HOMEPATH%\.spicetify\Themes"
 robocopy %HOMEPATH%\.spicetify\Themes\spicetify-themes-master %HOMEPATH%\.spicetify\Themes\ *.* /E /XD %HOMEPATH\.spicetify\Themes\ /move
@@ -188,8 +187,8 @@ If /i "%selectedlanguage%"=="1" echo 1 - Reapply current theme
 If /i "%selectedlanguage%"=="1" echo 2 - Apply a new theme
 If /i "%selectedlanguage%"=="1" echo 3 - Back
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ?
-If /i "%selectedlanguage%"=="2" echo 1 - Re-Appliquer Ã  nouveau le thÃ¨me actuel
-If /i "%selectedlanguage%"=="2" echo 2 - Appliquer un nouveau thÃ¨me
+If /i "%selectedlanguage%"=="2" echo 1 - Re-Appliquer … nouveau le thŠme actuel
+If /i "%selectedlanguage%"=="2" echo 2 - Appliquer un nouveau thŠme
 If /i "%selectedlanguage%"=="2" echo 3 - Retour
 echo.
 SET /p applythemechoice="Votre choix : "
@@ -197,7 +196,7 @@ If /i "%applythemechoice%"=="1" goto :Reapply
 If /i "%applythemechoice%"=="2" goto :ApplyNTheme
 If /i "%applythemechoice%"=="3" goto :menu
 If /i "%selectedlanguage%"=="1" ECHO "%applythemechoice%" is not a valid number !
-If /i "%selectedlanguage%"=="2" ECHO "%applythemechoice%" n'est pas un numÃ©ro valide !
+If /i "%selectedlanguage%"=="2" ECHO "%applythemechoice%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
@@ -271,7 +270,7 @@ SET /p reponse3="Votre choix : "
 If /i "%reponse3%"=="1" GOTO EnableDevTool
 If /i "%reponse3%"=="2" GOTO DisableDevTool
 If /i "%selectedlanguage%"=="1" ECHO "%reponse3%" is not a valid number !
-If /i "%selectedlanguage%"=="2" ECHO "%reponse3%" n'est pas un numÃ©ro valide !
+If /i "%selectedlanguage%"=="2" ECHO "%reponse3%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
