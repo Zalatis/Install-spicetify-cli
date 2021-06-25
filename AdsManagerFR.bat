@@ -1,5 +1,4 @@
 @echo off
-chcp 65001
 cls
 Title AdsManager, Script made by Zalati
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -30,13 +29,13 @@ echo *                                               *
 echo *************************************************
 echo.
 echo Que voulez-vous faire ?
-echo 1 - DÃ©sactiver les pubs
-echo 1 - RÃ©activer les pubs
+echo 1 - D‚sactiver les pubs
+echo 2 - R‚activer les pubs
 echo.
 SET /p reponse4="Votre choix : "
 If /i "%reponse4%"=="1" GOTO DisableAds
 If /i "%reponse4%"=="2" GOTO RestoreAds
-ECHO "%reponse4%" n'est pas un numÃ©ro valide !
+ECHO "%reponse4%" n'est pas un num‚ro valide !
 echo Appuyez sur une touche pour retourner au menu.
 pause > nul
 GOTO DisableAdsMenu
@@ -76,7 +75,7 @@ ipconfig /flushdns
 cls
 echo *************************************************
 echo *                                               *
-echo *         DÃ©marrage de Spotify.exe...           *
+echo *         D‚marrage de Spotify.exe...           *
 echo *                                               *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Remarque: Spotify.exe introuvable, lancez le manuellement.
@@ -85,7 +84,7 @@ del /S /F /Q "%HOMEPATH%\Downloads\AdsManager.bat"
 cls
 echo *************************************************
 echo *                                               *
-echo *      Les pubs Spotify ont Ã©tÃ© bloquÃ©es        *
+echo *      Les pubs Spotify ont ‚t‚ bloqu‚es        *
 echo *                                               *
 echo *************************************************
 echo.
@@ -132,7 +131,7 @@ ipconfig /flushdns
 cls
 echo *************************************************
 echo *                                               *
-echo *         DÃ©marrage de Spotify.exe...           *
+echo *         D‚marrage de Spotify.exe...           *
 echo *                                               *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Remarque: Spotify.exe introuvable, lancez le manuellement.
