@@ -1,7 +1,7 @@
 # NOT WORKING ATM, HAVE TO UPDATE IT FOR SPICETIFY V2
 
 # Install-spicetify-cli
-Menu for installing spicetify-cli it also include a spotify ad blocker
+Menu for installing spicetify-cli it also include a spotify ads blocker
 
 ## Preview :
 
