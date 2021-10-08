@@ -88,108 +88,47 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-goto menu
+goto :menu
 
 :InstallSpicetify
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *            Which version of Spicetify ?       *
-If /i "%selectedlanguage%"=="2" echo *           Quelle version de Spicetify ?       *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo *          It is recommended to use v2          *
-If /i "%selectedlanguage%"=="2" echo *       Il est recommand‚ d'utilis‚ la v2       *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo What do you want to do ?
-If /i "%selectedlanguage%"=="1" echo 1 - Spicetify v1
-If /i "%selectedlanguage%"=="1" echo 2 - Spicetify v2
-If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ? 
-If /i "%selectedlanguage%"=="2" echo 1 - Spicetify v1
-If /i "%selectedlanguage%"=="2" echo 2 - Spicetify v2
-echo.
-If /i "%selectedlanguage%"=="1" SET /p version="Your choice : "
-If /i "%selectedlanguage%"=="2" SET /p version="Votre choix : "
-If /i "%version%"=="1" goto InstallSpicetifyV1
-If /i "%version%"=="2" goto InstallSpicetifyV2
-echo.
-If /i "%selectedlanguage%"=="1" echo "%version%" is not a valid number !
-If /i "%selectedlanguage%"=="2" echo "%version%" n'est pas un num‚ro valide !
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-
-:InstallSpicetifyV1
-cls
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "$v="1.2.1"; Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression"
-cls
-%HOMEPATH%\spicetify-cli\spicetify.exe
-cls
-goto QDownloadThemesV1
-
-:InstallSpicetifyV2
 cls
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression"
 cls
 %HOMEPATH%\spicetify-cli\spicetify.exe
 cls
-goto QDownloadThemesV2
+goto :QDownloadThemes
 
-:QDownloadThemesV1
+:QDownloadThemes
 cls
 echo *************************************************
 echo *                                               *
 If /i "%selectedlanguage%"=="1" echo *      Installing themes for Spicetify... ?     *
-If /i "%selectedlanguage%"=="2" echo *   Installation de themes pour Spicetify... ?  *
+If /i "%selectedlanguage%"=="2" echo *   Installation de thŠmes pour Spicetify... ?  *
 echo *                                               *
 echo *************************************************
 If /i "%selectedlanguage%"=="1" echo What do you want to do ?
 If /i "%selectedlanguage%"=="1" echo 1 - Install themes
 If /i "%selectedlanguage%"=="1" echo 2 - Do not install themes
+If /i "%selectedlanguage%"=="1" echo 3 - Back
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ? 
 If /i "%selectedlanguage%"=="2" echo 1 - Installer des thŠmes
 If /i "%selectedlanguage%"=="2" echo 2 - Ne pas installer de thŠmes
+If /i "%selectedlanguage%"=="2" echo 3 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p reponse2="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p reponse2="Votre choix : "
-If /i "%reponse2%"=="1" goto DownloadThemesV1
-If /i "%reponse2%"=="2" goto NoDownloadThemes
+If /i "%reponse2%"=="1" goto :DownloadThemes
+If /i "%reponse2%"=="2" goto :NoDownloadThemes
+If /i "%reponse2%"=="3" goto :menu
 echo.
 If /i "%selectedlanguage%"=="1" echo "%reponse2%" is not a valid number !
 If /i "%selectedlanguage%"=="2" echo "%reponse2%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-goto InstallSpicetifyStep2
+goto :QDownloadThemes
 
-:QDownloadThemesV2
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *      Installing themes for Spicetify... ?     *
-If /i "%selectedlanguage%"=="2" echo *   Installation de themes pour Spicetify... ?  *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo What do you want to do ?
-If /i "%selectedlanguage%"=="1" echo 1 - Install themes
-If /i "%selectedlanguage%"=="1" echo 2 - Do not install themes
-If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ? 
-If /i "%selectedlanguage%"=="2" echo 1 - Installer des thŠmes
-If /i "%selectedlanguage%"=="2" echo 2 - Ne pas installer de thŠmes
-echo.
-If /i "%selectedlanguage%"=="1" SET /p reponse2="Your choice : "
-If /i "%selectedlanguage%"=="2" SET /p reponse2="Votre choix : "
-If /i "%reponse2%"=="1" goto DownloadThemesV2
-If /i "%reponse2%"=="2" goto NoDownloadThemes
-echo.
-If /i "%selectedlanguage%"=="1" echo "%reponse2%" is not a valid number !
-If /i "%selectedlanguage%"=="2" echo "%reponse2%" n'est pas un num‚ro valide !
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto InstallSpicetifyStep2
-
-:DownloadThemesV1
+:DownloadThemes
 cls
 If /i "%selectedlanguage%"=="1" ECHO Please wait while downloading themes.
 If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le t‚l‚chargement des thŠmes.
@@ -198,60 +137,7 @@ If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le t‚l‚chargemen
 robocopy %HOMEPATH%\.spicetify\Themes\spicetify-themes-master %HOMEPATH%\.spicetify\Themes\ *.* /E /XD %HOMEPATH\.spicetify\Themes\ /move
 del /S /F /Q "%HOMEPATH%\.spicetify\themes.zip" "%HOMEPATH%\.spicetify\.gitignore" "%HOMEPATH%\.spicetify\CODE_OF_CONDUCT.md" "%HOMEPATH%\.spicetify\LICENSE"
 @RD /S /Q "%HOMEPATH%\.spicetify\Themes\.github"
-start https://github.com/morpheusthewhite/spicetify-themes
-cls
-If /i "%selectedlanguage%"=="1" SET /p whichtheme="Here are all the available themes, choose one, and enter its name (Case sensitive) : "
-If /i "%selectedlanguage%"=="2" SET /p whichtheme="Voici tous les themes disponibles, choisissez-en un, et entrez son nom (La casse est prise en compte) : "
-IF '%whichtheme%'=='' SET whichtheme = 
-IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
-SET whichtheme=%whichtheme%
-%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
-%HOMEPATH%\spicetify-cli\spicetify.exe backup
-%HOMEPATH%\spicetify-cli\spicetify.exe apply
-%HOMEPATH%\spicetify-cli\spicetify.exe update
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *                Enjoy Spotify !                *
-If /i "%selectedlanguage%"=="2" echo *             Profitez de Spotify !             *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto menu
-
-:DownloadThemesV2
-cls
-If /i "%selectedlanguage%"=="1" ECHO Please wait while downloading themes.
-If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le t‚l‚chargement des thŠmes.
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://github.com/morpheusthewhite/spicetify-themes/archive/refs/heads/v2.zip -Destination %HOMEPATH%\.spicetify\themes.zip"
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive %HOMEPATH%\.spicetify\themes.zip %HOMEPATH%\.spicetify\Themes"
-robocopy %HOMEPATH%\.spicetify\Themes\spicetify-themes-2 %HOMEPATH%\.spicetify\Themes\ *.* /E /XD %HOMEPATH\.spicetify\Themes\ /move
-del /S /F /Q "%HOMEPATH%\.spicetify\themes.zip" "%HOMEPATH%\.spicetify\.gitignore" "%HOMEPATH%\.spicetify\CODE_OF_CONDUCT.md" "%HOMEPATH%\.spicetify\LICENSE"
-@RD /S /Q "%HOMEPATH%\.spicetify\Themes\.github"
-start https://github.com/morpheusthewhite/spicetify-themes/tree/v2
-cls
-If /i "%selectedlanguage%"=="1" SET /p whichtheme="Here are all the available themes, choose one, and enter its name (Case sensitive) : "
-If /i "%selectedlanguage%"=="2" SET /p whichtheme="Voici tous les themes disponibles, choisissez-en un, et entrez son nom (La casse est prise en compte) : "
-IF '%whichtheme%'=='' SET whichtheme = 
-IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
-SET whichtheme=%whichtheme%
-%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
-%HOMEPATH%\spicetify-cli\spicetify.exe backup
-%HOMEPATH%\spicetify-cli\spicetify.exe apply
-%HOMEPATH%\spicetify-cli\spicetify.exe update
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *                Enjoy Spotify !                *
-If /i "%selectedlanguage%"=="2" echo *             Profitez de Spotify !             *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto menu
+goto :ApplyNTheme
 
 :NoDownloadThemes
 cls
@@ -259,8 +145,8 @@ cls
 If /i "%selectedlanguage%"=="1" echo Make the color modifications in color.ini and the css modifications in user.css
 If /i "%selectedlanguage%"=="2" echo Faites les modifications de couleurs dans color.ini et les modifications du css dans user.css
 echo.
-If /i "%selectedlanguage%"=="1" SET /p=Then press the Enter key to continue ...
-If /i "%selectedlanguage%"=="2" SET /p=Puis appuyez sur la touche Enter pour continuer...
+If /i "%selectedlanguage%"=="1" SET /p=Then press a key to continue ...
+If /i "%selectedlanguage%"=="2" SET /p=Puis appuyez sur une touche pour continuer...
 %HOMEPATH%\spicetify-cli\spicetify.exe backup
 %HOMEPATH%\spicetify-cli\spicetify.exe apply
 %HOMEPATH%\spicetify-cli\spicetify.exe update
@@ -274,7 +160,7 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-goto menu
+goto :menu
 
 :ApplyTheme
 cls
@@ -296,7 +182,7 @@ If /i "%selectedlanguage%"=="2" ECHO "%applythemechoice%" n'est pas un num‚ro va
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-goto ApplyTheme
+goto :ApplyTheme
 
 :Reapply
 cls
@@ -312,20 +198,74 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-GOTO menu
+goto :menu
 
 :ApplyNTheme
-start https://github.com/morpheusthewhite/spicetify-themes
+start https://github.com/morpheusthewhite/spicetify-themes/blob/master/THEMES.md
+goto ApplyNTheme2
+
+:ApplyNTheme2
 cls
-If /i "%selectedlanguage%"=="1" SET /p whichtheme="Here are all the available themes, choose one, and enter its name (Case sensitive) : pour appliquer le theme actuel vous devez juste appuyez sur la touche Enter : "
-If /i "%selectedlanguage%"=="2" SET /p whichtheme="Voici tous les themes disponibles, choisissez-en un, et entrez son nom (La casse est prise en compte), pour appliquer le theme actuel vous devez juste appuyez sur la touche Enter : "
-IF '%whichtheme%'=='' SET whichtheme = 
-IF '%whichtheme%'=='%whichtheme%' SET whichtheme = %whichtheme%
-SET whichtheme=%whichtheme%
-%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%
+If /i "%selectedlanguage%"=="1" echo Here are all the available themes, make your choice (Case sensitive)
+If /i "%selectedlanguage%"=="2" echo Voici tous les thŠmes disponibles, faites votre choix (La casse est prise en compte)
+echo.
+If /i "%selectedlanguage%"=="1" echo Your selection : 
+If /i "%selectedlanguage%"=="1" If /i "%whichtheme%"=="" (echo Parent theme : None) else (echo Parent theme : %whichtheme%)
+If /i "%selectedlanguage%"=="1" If /i "%childrentheme%"=="" (echo Children theme : None) else (echo Children theme : %childrentheme%)
+If /i "%selectedlanguage%"=="2" echo Votre s‚lection : 
+If /i "%selectedlanguage%"=="2" If /i "%whichtheme%"=="" (echo ThŠme parent : Aucun) else (echo Theme parent : %whichtheme%)
+If /i "%selectedlanguage%"=="2" If /i "%childrentheme%"=="" (echo ThŠme enfant : Aucun) else (echo Theme enfant : %childrentheme%)
+
+echo.
+If /i "%selectedlanguage%"=="1" SET /p whichtheme="Enter the desired parent theme: "
+If /i "%selectedlanguage%"=="2" SET /p whichtheme="Saisissez le thŠme parent souhait‚: "
 cls
+
+If /i "%selectedlanguage%"=="1" echo Here are all the available themes, make your choice (Case sensitive)
+If /i "%selectedlanguage%"=="2" echo Voici tous les thŠmes disponibles, faites votre choix (La casse est prise en compte)
+echo.
+If /i "%selectedlanguage%"=="1" echo Your selection : 
+If /i "%selectedlanguage%"=="1" If /i "%whichtheme%"=="" (echo Parent theme : None) else (echo Parent theme : %whichtheme%)
+If /i "%selectedlanguage%"=="1" If /i "%childrentheme%"=="" (echo Children theme : None) else (echo Children theme : %childrentheme%)
+If /i "%selectedlanguage%"=="2" echo Votre s‚lection : 
+If /i "%selectedlanguage%"=="2" If /i "%whichtheme%"=="" (echo ThŠme parent : Aucun) else (echo Theme parent : %whichtheme%)
+If /i "%selectedlanguage%"=="2" If /i "%childrentheme%"=="" (echo ThŠme enfant : Aucun) else (echo Theme enfant : %childrentheme%)
+echo.
+If /i "%selectedlanguage%"=="1" SET /p childrentheme="Enter the desired children theme: "
+If /i "%selectedlanguage%"=="2" SET /p childrentheme="Saisissez le thŠme enfant souhait‚: "
+cls
+
+If /i "%selectedlanguage%"=="1" echo Here are all the available themes, make your choice (Case sensitive)
+If /i "%selectedlanguage%"=="2" echo Voici tous les thŠmes disponibles, faites votre choix (La casse est prise en compte)
+echo.
+If /i "%selectedlanguage%"=="1" echo Your selection : 
+If /i "%selectedlanguage%"=="1" If /i "%whichtheme%"=="" (echo Parent theme : None) else (echo Parent theme : %whichtheme%)
+If /i "%selectedlanguage%"=="1" If /i "%childrentheme%"=="" (echo Children theme : None) else (echo Children theme : %childrentheme%)
+If /i "%selectedlanguage%"=="2" echo Votre s‚lection : 
+If /i "%selectedlanguage%"=="2" If /i "%whichtheme%"=="" (echo ThŠme parent : Aucun) else (echo Theme parent : %whichtheme%)
+If /i "%selectedlanguage%"=="2" If /i "%childrentheme%"=="" (echo ThŠme enfant : Aucun) else (echo Theme enfant : %childrentheme%)
+
+echo.
+If /i "%selectedlanguage%"=="1" echo What do you want to do ?
+If /i "%selectedlanguage%"=="1" echo 1 - Confirm your choice
+If /i "%selectedlanguage%"=="1" echo 2 - Change your s‚lection
+If /i "%selectedlanguage%"=="1" echo 3 - Back
+If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ? 
+If /i "%selectedlanguage%"=="2" echo 1 - Confirmer votre choix
+If /i "%selectedlanguage%"=="2" echo 2 - Changer de s‚lection
+If /i "%selectedlanguage%"=="2" echo 3 - Retour
+echo.
+If /i "%selectedlanguage%"=="1" SET /p applytheme="Your choice : "
+If /i "%selectedlanguage%"=="2" SET /p applytheme="Votre choix : "
+If /i "%applytheme%"=="1" goto :ConfirmSelection
+If /i "%applytheme%"=="2" goto :ApplyNTheme2
+If /i "%applytheme%"=="3" goto :menu
+
+:ConfirmSelection
+If /i "%childrentheme%"=="" (%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%) else (%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme% color_scheme %childrentheme%)
 %HOMEPATH%\spicetify-cli\spicetify.exe backup
 %HOMEPATH%\spicetify-cli\spicetify.exe apply
+%HOMEPATH%\spicetify-cli\spicetify.exe update
 cls
 echo *************************************************
 echo *                                               *
@@ -336,7 +276,8 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-GOTO menu
+goto :menu
+
 
 :RestoreSpotify
 cls
@@ -351,26 +292,29 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-GOTO menu
+goto :menu
 
 :DevTool
 cls
 If /i "%selectedlanguage%"=="1" echo What do you want to do ?
 If /i "%selectedlanguage%"=="1" echo 1 - Activate DevTool
 If /i "%selectedlanguage%"=="1" echo 2 - Disable DevTool
+If /i "%selectedlanguage%"=="1" echo 2 - Back
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ?
 If /i "%selectedlanguage%"=="2" echo 1 - Activer le DevTool
-If /i "%selectedlanguage%"=="2" echo 2 - Desactiver le DevTool
+If /i "%selectedlanguage%"=="2" echo 2 - D‚sactiver le DevTool
+If /i "%selectedlanguage%"=="2" echo 3 - Retour
 echo.
 SET /p reponse3="Votre choix : "
-If /i "%reponse3%"=="1" GOTO EnableDevTool
-If /i "%reponse3%"=="2" GOTO DisableDevTool
+If /i "%reponse3%"=="1" goto :EnableDevTool
+If /i "%reponse3%"=="2" goto :DisableDevTool
+If /i "%reponse3%"=="3" goto :menu
 If /i "%selectedlanguage%"=="1" ECHO "%reponse3%" is not a valid number !
 If /i "%selectedlanguage%"=="2" ECHO "%reponse3%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-GOTO DevTool
+goto :DevTool
 
 :EnableDevTool
 cls
@@ -385,7 +329,7 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-GOTO menu
+goto :menu
 
 :DisableDevTool
 cls
@@ -400,7 +344,7 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-GOTO menu
+goto :menu
 
 :DisableAdsMenu
 cls
@@ -420,4 +364,4 @@ echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-goto menu
+goto :menu
