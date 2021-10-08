@@ -1,5 +1,3 @@
-# NOT WORKING ATM, waiting for spicetify-cli to work with Spotify latest version for a large update on the script
-
 # Install-spicetify-cli
 Menu for installing spicetify-cli it also include a spotify ads blocker
 
