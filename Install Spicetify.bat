@@ -205,6 +205,8 @@ start https://github.com/morpheusthewhite/spicetify-themes/blob/master/THEMES.md
 goto ApplyNTheme2
 
 :ApplyNTheme2
+SET "whichtheme="
+SET "childrentheme="
 cls
 If /i "%selectedlanguage%"=="1" echo Here are all the available themes, make your choice (Case sensitive)
 If /i "%selectedlanguage%"=="2" echo Voici tous les thŠmes disponibles, faites votre choix (La casse est prise en compte)
@@ -233,9 +235,9 @@ If /i "%selectedlanguage%"=="2" If /i "%childrentheme%"=="" (echo ThŠme enfant :
 echo.
 If /i "%selectedlanguage%"=="1" SET /p childrentheme="Enter the desired children theme: "
 If /i "%selectedlanguage%"=="2" SET /p childrentheme="Saisissez le thŠme enfant souhait‚: "
-goto :ConfirmChoice
+goto :ConfirmSelection
 
-:ConfirmChoice
+:ConfirmSelection
 cls
 If /i "%selectedlanguage%"=="1" echo Here are all the available themes, make your choice (Case sensitive)
 If /i "%selectedlanguage%"=="2" echo Voici tous les thŠmes disponibles, faites votre choix (La casse est prise en compte)
@@ -259,7 +261,7 @@ If /i "%selectedlanguage%"=="2" echo 3 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p applytheme="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p applytheme="Votre choix : "
-If /i "%applytheme%"=="1" goto :ConfirmSelection
+If /i "%applytheme%"=="1" goto :ConfirmChoice
 If /i "%applytheme%"=="2" goto :ApplyNTheme2
 If /i "%applytheme%"=="3" goto :menu
 If /i "%selectedlanguage%"=="1" echo "%applytheme%" is not a valid number !
@@ -267,9 +269,9 @@ If /i "%selectedlanguage%"=="2" echo "%applytheme%" n'est pas un num‚ro valide !
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
 If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
 pause > nul
-goto :ConfirmChoice
+goto :ConfirmSelection
 
-:ConfirmSelection
+:ConfirmChoice
 If /i "%childrentheme%"=="" (%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%) else (%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme% color_scheme %childrentheme%)
 %HOMEPATH%\spicetify-cli\spicetify.exe backup
 %HOMEPATH%\spicetify-cli\spicetify.exe apply
