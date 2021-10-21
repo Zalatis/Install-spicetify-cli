@@ -36,20 +36,24 @@ If /i "%selectedlanguage%"=="1" echo 1 - Install Spotify (latest version)
 If /i "%selectedlanguage%"=="1" echo 2 - Install Spicetify
 If /i "%selectedlanguage%"=="1" echo 3 - Install/Update themes
 If /i "%selectedlanguage%"=="1" echo 4 - Apply again or change the theme
-If /i "%selectedlanguage%"=="1" echo 5 - Put back the Spotify base theme
-If /i "%selectedlanguage%"=="1" echo 6 - Toggle Devtool
-If /i "%selectedlanguage%"=="1" echo 7 - Toggle ads (test version)
-If /i "%selectedlanguage%"=="1" echo 8 - Change language
+If /i "%selectedlanguage%"=="1" echo 5 - Activate an extension
+If /i "%selectedlanguage%"=="1" echo 6 - Activate a custom application
+If /i "%selectedlanguage%"=="1" echo 7 - Put back the Spotify base theme
+If /i "%selectedlanguage%"=="1" echo 8 - Toggle Devtool
+If /i "%selectedlanguage%"=="1" echo 9 - Toggle ads (test version)
+If /i "%selectedlanguage%"=="1" echo 10 - Change language
 If /i "%selectedlanguage%"=="1" echo 99 - Quit
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ?
 If /i "%selectedlanguage%"=="2" echo 1 - Installer Spotify (derniŠre version)
 If /i "%selectedlanguage%"=="2" echo 2 - Installer Spicetify
 If /i "%selectedlanguage%"=="2" echo 3 - Installer/Update les thŠmes
 If /i "%selectedlanguage%"=="2" echo 4 - Re-Appliquer ou changer le thŠme
-If /i "%selectedlanguage%"=="2" echo 5 - Remettre le thŠme de base de Spotify
-If /i "%selectedlanguage%"=="2" echo 6 - Activer/D‚sactiver le devtool
-If /i "%selectedlanguage%"=="2" echo 7 - Bloquer/D‚bloquer les pubs (version test)
-If /i "%selectedlanguage%"=="2" echo 8 - Changer de langue
+If /i "%selectedlanguage%"=="2" echo 5 - Activer une extension
+If /i "%selectedlanguage%"=="2" echo 6 - Activer une application custom
+If /i "%selectedlanguage%"=="2" echo 7 - Remettre le thŠme de base de Spotify
+If /i "%selectedlanguage%"=="2" echo 8 - Activer/D‚sactiver le devtool
+If /i "%selectedlanguage%"=="2" echo 9 - Bloquer/D‚bloquer les pubs (version test)
+If /i "%selectedlanguage%"=="2" echo 10 - Changer de langue
 If /i "%selectedlanguage%"=="2" echo 99 - Quitter
 echo.
 If /i "%selectedlanguage%"=="1" SET /p reponse1="Your choice : "
@@ -58,10 +62,12 @@ If /i "%reponse1%"=="1" goto InstallSpotify
 If /i "%reponse1%"=="2" goto InstallSpicetify
 If /i "%reponse1%"=="3" goto DownloadThemes
 If /i "%reponse1%"=="4" goto ApplyTheme
-If /i "%reponse1%"=="5" goto RestoreSpotify
-If /i "%reponse1%"=="6" goto DevTool
-If /i "%reponse1%"=="7" goto DisableAdsMenu
-If /i "%reponse1%"=="8" goto language
+If /i "%reponse1%"=="5" goto ActivateExtension
+If /i "%reponse1%"=="6" goto ActivateCustomApp
+If /i "%reponse1%"=="7" goto RestoreSpotify
+If /i "%reponse1%"=="8" goto DevTool
+If /i "%reponse1%"=="9" goto DisableAdsMenu
+If /i "%reponse1%"=="10" goto language
 If /i "%reponse1%"=="99" exit
 echo.
 If /i "%selectedlanguage%"=="1" echo "%reponse1%" is not a valid number !
@@ -288,6 +294,135 @@ If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au me
 pause > nul
 goto menu
 
+:ActivateExtension
+SET "extensionchoice="
+SET "extensionname="
+cls
+echo *************************************************
+echo *                                               *
+If /i "%selectedlanguage%"=="1" echo *              Activate a extension             *
+If /i "%selectedlanguage%"=="2" echo *              Activer une extension            *
+echo *                                               *
+echo *************************************************
+echo.
+If /i "%selectedlanguage%"=="1" echo Which one do you want to activate?
+If /i "%selectedlanguage%"=="2" echo Laquelle voulez-vous activer ?
+echo 1 - Auto Skip Videos
+echo 2 - Bookmark
+echo 3 - Christian Spotify
+echo 4 - Full App Display
+echo 5 - Keyboard Shortcut
+echo 6 - Loopy Loop
+echo 7 - Pop-up Lyrics
+echo 8 - Shuffle+
+echo 9 - Trash Bin
+echo 10 - Web Now Playing
+If /i "%selectedlanguage%"=="1" echo 99 - Quit
+If /i "%selectedlanguage%"=="2" echo 99 - Quitter
+echo.
+If /i "%selectedlanguage%"=="1" SET /p extensionchoice="Your choice : "
+If /i "%selectedlanguage%"=="2" SET /p extensionchoice="Votre choix : "
+If %extensionchoice% NEQ 1 If %extensionchoice% NEQ 1 If %extensionchoice% NEQ 2 If %extensionchoice% NEQ 3 If %extensionchoice% NEQ 4 If %extensionchoice% NEQ 5 If %extensionchoice% NEQ 6 If %extensionchoice% NEQ 7 If %extensionchoice% NEQ 8 If %extensionchoice% NEQ 9 If %extensionchoice% NEQ 10 If %extensionchoice% NEQ 99 goto ErrorExtension
+If /i "%extensionchoice%"=="1" SET extensionname=autoSkipVideo.js
+If /i "%extensionchoice%"=="2" SET extensionname=bookmark.js
+If /i "%extensionchoice%"=="3" SET extensionname=autoSkipExplicit.js
+If /i "%extensionchoice%"=="4" SET extensionname=fullAppDisplay.js
+If /i "%extensionchoice%"=="5" SET extensionname=keyboardShortcut.js
+If /i "%extensionchoice%"=="6" SET extensionname=loopyLoop.js
+If /i "%extensionchoice%"=="7" SET extensionname=popupLyrics.js
+If /i "%extensionchoice%"=="8" SET extensionname=shuffle+.js
+If /i "%extensionchoice%"=="9" SET extensionname=trashbin.js
+If /i "%extensionchoice%"=="10" SET extensionname=webnowplaying.js
+If /i "%extensionchoice%"=="99" goto menu
+robocopy %HOMEPATH%\spicetify-cli\Extensions\ %HOMEPATH%\.spicetify\Extensions\ %extensionname%
+%HOMEPATH%\spicetify-cli\spicetify.exe config extensions %extensionname%
+%HOMEPATH%\spicetify-cli\spicetify.exe apply
+cls
+echo *************************************************
+echo *                                               *
+If /i "%selectedlanguage%"=="1" echo *       The extension is now active         *
+If /i "%selectedlanguage%"=="2" echo *    L'extension est maintenant active      *
+echo *                                               *
+echo *************************************************
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto menu
+
+:ErrorExtension
+If /i "%selectedlanguage%"=="1" echo "%extensionchoice%" is not a valid number !
+If /i "%selectedlanguage%"=="2" echo "%extensionchoice%" n'est pas un num‚ro valide !
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto ActivateExtension
+
+
+:ActivateCustomApp
+cls
+SET "appchoice="
+SET "appname="
+cls
+echo *************************************************
+echo *                                               *
+If /i "%selectedlanguage%"=="1" echo *              Activate a custom app            *
+If /i "%selectedlanguage%"=="2" echo *         Activer une application custom        *
+echo *                                               *
+echo *************************************************
+echo.
+If /i "%selectedlanguage%"=="1" echo Which one do you want to activate?
+If /i "%selectedlanguage%"=="2" echo Laquelle voulez-vous activer ?
+echo 1 - Reddit
+echo 2 - New Releases
+echo 3 - Lyrics Plus
+If /i "%selectedlanguage%"=="1" echo 99 - Quit
+If /i "%selectedlanguage%"=="2" echo 99 - Quitter
+echo.
+If /i "%selectedlanguage%"=="1" SET /p appchoice="Your choice : "
+If /i "%selectedlanguage%"=="2" SET /p appchoice="Votre choix : "
+If %appchoice% NEQ 1 If %appchoice% NEQ 1 If %appchoice% NEQ 2 If %appchoice% NEQ 3 If %appchoice% NEQ 99 goto ErrorCustomApp
+If /i "%appchoice%"=="1" SET appname=reddit
+If /i "%appchoice%"=="2" SET appname=new-releases
+If /i "%appchoice%"=="3" SET appname=lyrics-plus
+If /i "%appchoice%"=="99" goto menu
+%HOMEPATH%\spicetify-cli\spicetify.exe config custom_apps %appname%
+%HOMEPATH%\spicetify-cli\spicetify.exe apply
+cls
+echo *************************************************
+echo *                                               *
+If /i "%selectedlanguage%"=="1" echo *       The extension is now active         *
+If /i "%selectedlanguage%"=="2" echo *    L'extension est maintenant active      *
+echo *                                               *
+echo *************************************************
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto menu
+
+:ErrorCustomApp
+If /i "%selectedlanguage%"=="1" echo "%appchoice%" is not a valid number !
+If /i "%selectedlanguage%"=="2" echo "%appchoice%" n'est pas un num‚ro valide !
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto ActivateCustomApp
+
+
+
+:EnableDevTool
+cls
+%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
+cls
+echo *************************************************
+echo *                                               *
+If /i "%selectedlanguage%"=="1" echo *           DevTool is now active !             *
+If /i "%selectedlanguage%"=="2" echo *      Le DevTool est maintenant actif !        *
+echo *                                               *
+echo *************************************************
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto menu
 
 :RestoreSpotify
 cls
