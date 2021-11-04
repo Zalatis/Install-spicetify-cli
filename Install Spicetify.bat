@@ -24,6 +24,35 @@ goto language
 
 :menu
 cls
+if exist %HOMEPATH%\spicetify-cli\spicetify.exe (
+    %HOMEPATH%\spicetify-cli\spicetify.exe -v > %HOMEPATH%\spicetify-cli\version.txt
+    SET /p current=<%HOMEPATH%\spicetify-cli\version.txt
+) else (
+	SET current="None"
+	If /i "%selectedlanguage%"=="1" echo Spicetify is not installed yet
+    If /i "%selectedlanguage%"=="2" echo Spicetify n'est pas encore install‚
+)
+if "%latest%"=="" (
+	for /f "tokens=1,* delims=:" %%A in ('curl -ks https://api.github.com/repos/khanhas/spicetify-cli/releases/latest ^| find "tag_name"') do (
+	set latest=%%B)
+) else (
+	If /i "%selectedlanguage%"=="1" echo You are in %current%
+)
+set latest=%latest:",=%
+set latest=%latest:"v=%
+if %current%==%latest% (
+	If /i "%selectedlanguage%"=="1" echo You are in the latest version of Spicetify
+	If /i "%selectedlanguage%"=="2" echo Vous ˆtes dans la derniŠre version de Spicetify
+) else (
+	If %current%=="None" (
+		If /i "%selectedlanguage%"=="1" echo Use "2" to install Spicetify
+		If /i "%selectedlanguage%"=="2" echo Utilisez "2" pour installer Spicetify
+	) else (
+	If /i "%selectedlanguage%"=="1" echo A new version of Spicetify is available
+	If /i "%selectedlanguage%"=="2" echo Une nouvelle version de Spicetify est disponnible
+	)
+)
+echo.
 echo *************************************************
 echo *                                               *
 If /i "%selectedlanguage%"=="1" echo *                  Script Menu                  *
@@ -32,8 +61,9 @@ echo *                                               *
 echo *************************************************
 echo.
 If /i "%selectedlanguage%"=="1" echo What do you want to do ?
-If /i "%selectedlanguage%"=="1" echo 1 - Install Spotify (latest version)
+If /i "%selectedlanguage%"=="1" echo 1 - Install Spotify
 If /i "%selectedlanguage%"=="1" echo 2 - Install Spicetify
+If /i "%selectedlanguage%"=="1" echo 3 - Update Spicetify
 If /i "%selectedlanguage%"=="1" echo 3 - Install/Update themes
 If /i "%selectedlanguage%"=="1" echo 4 - Apply again or change the theme
 If /i "%selectedlanguage%"=="1" echo 5 - Activate an extension
@@ -44,30 +74,32 @@ If /i "%selectedlanguage%"=="1" echo 9 - Toggle ads (test version)
 If /i "%selectedlanguage%"=="1" echo 10 - Change language
 If /i "%selectedlanguage%"=="1" echo 99 - Quit
 If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ?
-If /i "%selectedlanguage%"=="2" echo 1 - Installer Spotify (derniŠre version)
+If /i "%selectedlanguage%"=="2" echo 1 - Installer Spotify
 If /i "%selectedlanguage%"=="2" echo 2 - Installer Spicetify
-If /i "%selectedlanguage%"=="2" echo 3 - Installer/Update les thŠmes
-If /i "%selectedlanguage%"=="2" echo 4 - Re-Appliquer ou changer le thŠme
-If /i "%selectedlanguage%"=="2" echo 5 - Activer une extension
-If /i "%selectedlanguage%"=="2" echo 6 - Activer une application custom
-If /i "%selectedlanguage%"=="2" echo 7 - Remettre le thŠme de base de Spotify
-If /i "%selectedlanguage%"=="2" echo 8 - Activer/D‚sactiver le devtool
-If /i "%selectedlanguage%"=="2" echo 9 - Bloquer/D‚bloquer les pubs (version test)
-If /i "%selectedlanguage%"=="2" echo 10 - Changer de langue
+If /i "%selectedlanguage%"=="2" echo 3 - Mettre … jour Spicetify
+If /i "%selectedlanguage%"=="2" echo 4 - Installer/Mettre … jour les thŠmes
+If /i "%selectedlanguage%"=="2" echo 5 - Re-Appliquer ou changer le thŠme
+If /i "%selectedlanguage%"=="2" echo 6 - Activer une extension
+If /i "%selectedlanguage%"=="2" echo 7 - Activer une application custom
+If /i "%selectedlanguage%"=="2" echo 8 - Remettre le thŠme de base de Spotify
+If /i "%selectedlanguage%"=="2" echo 9 - Activer/D‚sactiver le devtool
+If /i "%selectedlanguage%"=="2" echo 10 - Bloquer/D‚bloquer les pubs (version test)
+If /i "%selectedlanguage%"=="2" echo 11 - Changer de langue
 If /i "%selectedlanguage%"=="2" echo 99 - Quitter
 echo.
 If /i "%selectedlanguage%"=="1" SET /p reponse1="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p reponse1="Votre choix : "
 If /i "%reponse1%"=="1" goto InstallSpotify
 If /i "%reponse1%"=="2" goto InstallSpicetify
-If /i "%reponse1%"=="3" goto DownloadThemes
-If /i "%reponse1%"=="4" goto ApplyTheme
-If /i "%reponse1%"=="5" goto ActivateExtension
-If /i "%reponse1%"=="6" goto ActivateCustomApp
-If /i "%reponse1%"=="7" goto RestoreSpotify
-If /i "%reponse1%"=="8" goto DevTool
-If /i "%reponse1%"=="9" goto DisableAdsMenu
-If /i "%reponse1%"=="10" goto language
+If /i "%reponse1%"=="3" goto UpdateSpicetify
+If /i "%reponse1%"=="4" goto DownloadThemes
+If /i "%reponse1%"=="5" goto ApplyTheme
+If /i "%reponse1%"=="6" goto ActivateExtension
+If /i "%reponse1%"=="7" goto ActivateCustomApp
+If /i "%reponse1%"=="8" goto RestoreSpotify
+If /i "%reponse1%"=="9" goto DevTool
+If /i "%reponse1%"=="10" goto DisableAdsMenu
+If /i "%reponse1%"=="11" goto language
 If /i "%reponse1%"=="99" exit
 echo.
 If /i "%selectedlanguage%"=="1" echo "%reponse1%" is not a valid number !
@@ -87,7 +119,7 @@ del /S /F /Q "%HOMEPATH%\Downloads\SpotifySetup.exe"
 cls
 echo *************************************************
 echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *   The installation of Spotify is finished!    *
+If /i "%selectedlanguage%"=="1" echo *   The installation of Spotify is finished !   *
 If /i "%selectedlanguage%"=="2" echo *      L'installation de Spotify est fini !     *
 echo *                                               *
 echo *************************************************
@@ -103,6 +135,23 @@ cls
 %HOMEPATH%\spicetify-cli\spicetify.exe
 cls
 goto QDownloadThemes
+
+:UpdateSpicetify
+cls
+%HOMEPATH%\spicetify-cli\spicetify.exe upgrade
+%HOMEPATH%\spicetify-cli\spicetify.exe restore backup apply
+cls
+echo *************************************************
+echo *                                               *
+If /i "%selectedlanguage%"=="1" echo *     The Update of Spicetify is finished !     *
+If /i "%selectedlanguage%"=="2" echo *     La mise … jour de Spicetify est fini !    *
+echo *                                               *
+echo *************************************************
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto menu
+
 
 :QDownloadThemes
 cls
