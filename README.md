@@ -3,7 +3,7 @@ Menu for installing spicetify-cli it also include a spotify ads blocker
 
 ## Preview :
 
-![](https://i.ibb.co/qDLSHwL/1.png)
+![](https://i.ibb.co/TRkzChT/1.png)
 ![](https://i.ibb.co/415H22N/2.png)
 ![](https://i.ibb.co/w057fS8/3.png)
 
