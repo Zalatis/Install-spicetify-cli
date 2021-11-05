@@ -24,9 +24,9 @@ goto language
 
 :menu
 cls
-if exist C:\%HOMEPATH%\spicetify-cli\spicetify.exe (
-    C:\%HOMEPATH%\spicetify-cli\spicetify.exe -v > C:\%HOMEPATH%\spicetify-cli\version.txt
-    SET /p current=<C:\%HOMEPATH%\spicetify-cli\version.txt
+if exist C:%HOMEPATH%\spicetify-cli\spicetify.exe (
+    C:%HOMEPATH%\spicetify-cli\spicetify.exe -v > C:%HOMEPATH%\spicetify-cli\version.txt
+    SET /p current=<C:%HOMEPATH%\spicetify-cli\version.txt
 ) else (
 	SET current="None"
 	If /i "%selectedlanguage%"=="1" echo Spicetify is not installed yet
@@ -111,11 +111,11 @@ goto menu
 
 :InstallSpotify
 cls
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://download.scdn.co/SpotifySetup.exe -Destination C:\%HOMEPATH%\Downloads\SpotifySetup.exe"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://download.scdn.co/SpotifySetup.exe -Destination C:%HOMEPATH%\Downloads\SpotifySetup.exe"
 cls
-C:\%HOMEPATH%\Downloads\SpotifySetup.exe /Silent
+C:%HOMEPATH%\Downloads\SpotifySetup.exe /Silent
 cls
-del /S /F /Q "C:\%HOMEPATH%\Downloads\SpotifySetup.exe"
+del /S /F /Q "C:%HOMEPATH%\Downloads\SpotifySetup.exe"
 cls
 echo *************************************************
 echo *                                               *
@@ -132,14 +132,14 @@ goto menu
 cls
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1" | Invoke-Expression"
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe
+C:%HOMEPATH%\spicetify-cli\spicetify.exe
 cls
 goto QDownloadThemes
 
 :UpdateSpicetify
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe upgrade
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe restore backup apply
+C:%HOMEPATH%\spicetify-cli\spicetify.exe upgrade
+C:%HOMEPATH%\spicetify-cli\spicetify.exe restore backup apply
 cls
 echo *************************************************
 echo *                                               *
@@ -187,24 +187,24 @@ goto QDownloadThemes
 cls
 If /i "%selectedlanguage%"=="1" ECHO Please wait while downloading themes.
 If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le t‚l‚chargement des thŠmes.
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://github.com/morpheusthewhite/spicetify-themes/archive/refs/heads/master.zip -Destination C:\%HOMEPATH%\.spicetify\themes.zip"
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive C:\%HOMEPATH%\.spicetify\themes.zip C:\%HOMEPATH%\.spicetify\Themes"
-robocopy C:\%HOMEPATH%\.spicetify\Themes\spicetify-themes-master C:\%HOMEPATH%\.spicetify\Themes\ *.* /E /XD %HOMEPATH\.spicetify\Themes\ /move
-del /S /F /Q "C:\%HOMEPATH%\.spicetify\themes.zip" "C:\%HOMEPATH%\.spicetify\.gitignore" "C:\%HOMEPATH%\.spicetify\CODE_OF_CONDUCT.md" "C:\%HOMEPATH%\.spicetify\LICENSE"
-@RD /S /Q "C:\%HOMEPATH%\.spicetify\Themes\.github"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://github.com/morpheusthewhite/spicetify-themes/archive/refs/heads/master.zip -Destination C:%HOMEPATH%\.spicetify\themes.zip"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive C:%HOMEPATH%\.spicetify\themes.zip C:%HOMEPATH%\.spicetify\Themes"
+robocopy C:%HOMEPATH%\.spicetify\Themes\spicetify-themes-master C:%HOMEPATH%\.spicetify\Themes\ *.* /E /XD C:%HOMEPATH\.spicetify\Themes\ /move
+del /S /F /Q "C:%HOMEPATH%\.spicetify\themes.zip" "C:%HOMEPATH%\.spicetify\.gitignore" "C:%HOMEPATH%\.spicetify\CODE_OF_CONDUCT.md" "C:%HOMEPATH%\.spicetify\LICENSE"
+@RD /S /Q "C:%HOMEPATH%\.spicetify\Themes\.github"
 goto ApplyNTheme
 
 :NoDownloadThemes
 cls
-%SystemRoot%\explorer.exe "C:\%HOMEPATH%\spicetify-cli\Themes\SpicetifyDefault"
+%SystemRoot%\explorer.exe "C:%HOMEPATH%\spicetify-cli\Themes\SpicetifyDefault"
 If /i "%selectedlanguage%"=="1" echo Make the color modifications in color.ini and the css modifications in user.css
 If /i "%selectedlanguage%"=="2" echo Faites les modifications de couleurs dans color.ini et les modifications du css dans user.css
 echo.
 If /i "%selectedlanguage%"=="1" SET /p=Then press a key to continue ...
 If /i "%selectedlanguage%"=="2" SET /p=Puis appuyez sur une touche pour continuer...
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
+C:%HOMEPATH%\spicetify-cli\spicetify.exe backup
+C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
+C:%HOMEPATH%\spicetify-cli\spicetify.exe update
 cls
 echo *************************************************
 echo *                                               *
@@ -241,8 +241,8 @@ goto ApplyTheme
 
 :Reapply
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
+C:%HOMEPATH%\spicetify-cli\spicetify.exe backup
+C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
 echo *************************************************
 echo *                                               *
@@ -327,10 +327,10 @@ pause > nul
 goto ConfirmSelection
 
 :ConfirmChoice
-If /i "%childrentheme%"=="" (C:\%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%) else (C:\%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme% color_scheme %childrentheme%)
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe backup
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe update
+If /i "%childrentheme%"=="" (C:%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme%) else (C:%HOMEPATH%\spicetify-cli\spicetify.exe config current_theme %whichtheme% color_scheme %childrentheme%)
+C:%HOMEPATH%\spicetify-cli\spicetify.exe backup
+C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
+C:%HOMEPATH%\spicetify-cli\spicetify.exe update
 cls
 echo *************************************************
 echo *                                               *
@@ -383,9 +383,9 @@ If /i "%extensionchoice%"=="8" SET extensionname=shuffle+.js
 If /i "%extensionchoice%"=="9" SET extensionname=trashbin.js
 If /i "%extensionchoice%"=="10" SET extensionname=webnowplaying.js
 If /i "%extensionchoice%"=="99" goto menu
-robocopy C:\%HOMEPATH%\spicetify-cli\Extensions\ C:\%HOMEPATH%\.spicetify\Extensions\ %extensionname%
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe config extensions %extensionname%
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
+robocopy C:%HOMEPATH%\spicetify-cli\Extensions\ C:%HOMEPATH%\.spicetify\Extensions\ %extensionname%
+C:%HOMEPATH%\spicetify-cli\spicetify.exe config extensions %extensionname%
+C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
 echo *************************************************
 echo *                                               *
@@ -434,8 +434,8 @@ If /i "%appchoice%"=="1" SET appname=reddit
 If /i "%appchoice%"=="2" SET appname=new-releases
 If /i "%appchoice%"=="3" SET appname=lyrics-plus
 If /i "%appchoice%"=="99" goto menu
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe config custom_apps %appname%
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe apply
+C:%HOMEPATH%\spicetify-cli\spicetify.exe config custom_apps %appname%
+C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
 echo *************************************************
 echo *                                               *
@@ -460,7 +460,7 @@ goto ActivateCustomApp
 
 :EnableDevTool
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
+C:%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
 cls
 echo *************************************************
 echo *                                               *
@@ -475,7 +475,7 @@ goto menu
 
 :RestoreSpotify
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe restore backup
+C:%HOMEPATH%\spicetify-cli\spicetify.exe restore backup
 cls
 echo *************************************************
 echo *                                               *
@@ -512,7 +512,7 @@ goto DevTool
 
 :EnableDevTool
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
+C:%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
 cls
 echo *************************************************
 echo *                                               *
@@ -527,7 +527,7 @@ goto menu
 
 :DisableDevTool
 cls
-C:\%HOMEPATH%\spicetify-cli\spicetify.exe disable-devtool
+C:%HOMEPATH%\spicetify-cli\spicetify.exe disable-devtool
 cls
 echo *************************************************
 echo *                                               *
@@ -542,11 +542,11 @@ goto menu
 
 :DisableAdsMenu
 cls
-del /S /F /Q "C:\%HOMEPATH%\Downloads\AdsManager.bat"
+del /S /F /Q "C:%HOMEPATH%\Downloads\AdsManager.bat"
 cls
-If /i "%selectedlanguage%"=="1" %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/tools/AdsManagerEN.bat -Destination C:\%HOMEPATH%\Downloads\AdsManager.bat"
-If /i "%selectedlanguage%"=="2" %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/tools/AdsManagerFR.bat -Destination C:\%HOMEPATH%\Downloads\AdsManager.bat"
-call C:\%HOMEPATH%\Downloads\AdsManager.bat
+If /i "%selectedlanguage%"=="1" %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/tools/AdsManagerEN.bat -Destination C:%HOMEPATH%\Downloads\AdsManager.bat"
+If /i "%selectedlanguage%"=="2" %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/tools/AdsManagerFR.bat -Destination C:%HOMEPATH%\Downloads\AdsManager.bat"
+call C:%HOMEPATH%\Downloads\AdsManager.bat
 Title Install Spicetify, Script made by Zalati
 cls
 echo *************************************************
