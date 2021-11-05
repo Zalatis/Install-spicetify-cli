@@ -172,7 +172,7 @@ If /i "%selectedlanguage%"=="2" echo 3 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p reponse2="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p reponse2="Votre choix : "
-If /i "%reponse2%"=="1" goto DownloadThemes
+If /i "%reponse2%"=="1" goto DownloadThemes				
 If /i "%reponse2%"=="2" goto NoDownloadThemes
 If /i "%reponse2%"=="3" goto menu
 echo.
@@ -188,9 +188,9 @@ cls
 If /i "%selectedlanguage%"=="1" ECHO Please wait while downloading themes.
 If /i "%selectedlanguage%"=="2" ECHO Veuillez patienter pendant le t‚l‚chargement des thŠmes.
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://github.com/morpheusthewhite/spicetify-themes/archive/refs/heads/master.zip -Destination C:%HOMEPATH%\.spicetify\themes.zip"
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive C:%HOMEPATH%\.spicetify\themes.zip C:%HOMEPATH%\.spicetify\Themes"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Expand-Archive C:%HOMEPATH%\.spicetify\themes.zip C:%HOMEPATH%\.spicetify\Themes" -Force
 robocopy C:%HOMEPATH%\.spicetify\Themes\spicetify-themes-master C:%HOMEPATH%\.spicetify\Themes\ *.* /E /XD C:%HOMEPATH\.spicetify\Themes\ /move
-del /S /F /Q "C:%HOMEPATH%\.spicetify\themes.zip" "C:%HOMEPATH%\.spicetify\.gitignore" "C:%HOMEPATH%\.spicetify\CODE_OF_CONDUCT.md" "C:%HOMEPATH%\.spicetify\LICENSE"
+del /S /F /Q "C:%HOMEPATH%\.spicetify\themes.zip" "C:%HOMEPATH%\.spicetify\Themes\.gitignore" "C:%HOMEPATH%\.spicetify\Themes\CODE_OF_CONDUCT.md" "C:%HOMEPATH%\.spicetify\Themes\LICENSE" "C:%HOMEPATH%\.spicetify\Themes\CONTRIBUTING.md" "C:%HOMEPATH%\.spicetify\Themes\README.md" "C:%HOMEPATH%\.spicetify\Themes\LICENSE" "C:%HOMEPATH%\.spicetify\Themes\THEMES.md"
 @RD /S /Q "C:%HOMEPATH%\.spicetify\Themes\.github"
 goto ApplyNTheme
 
