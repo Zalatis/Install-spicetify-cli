@@ -61,10 +61,10 @@ echo *                                               *
 echo *       Adding domains to the hosts file...     *
 echo *                                               *
 echo *************************************************
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://raw.githubusercontent.com/x0uid/SpotifyAdBlock/master/hosts -Destination %HOMEPATH%\Downloads\SpotifyHosts"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://raw.githubusercontent.com/x0uid/SpotifyAdBlock/master/hosts -Destination C:%HOMEPATH%\Downloads\SpotifyHosts"
 echo.>>"%SystemRoot%\system32\drivers\etc\hosts"
-type "%HOMEPATH%\Downloads\SpotifyHosts">>"%SystemRoot%\system32\drivers\etc\hosts"
-del /S /F /Q "%HOMEPATH%\Downloads\SpotifyHosts"
+type "C:%HOMEPATH%\Downloads\SpotifyHosts">>"%SystemRoot%\system32\drivers\etc\hosts"
+del /S /F /Q "C:%HOMEPATH%\Downloads\SpotifyHosts"
 cls
 echo *************************************************
 echo *                                               *
@@ -80,7 +80,7 @@ echo *                                               *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Notice: Spotify.exe not found, run it manually.
 IF EXIST %appdata%\Spotify\Spotify.exe start %appdata%\Spotify\Spotify.exe
-del /S /F /Q "%HOMEPATH%\Downloads\AdsManager.bat"
+del /S /F /Q "C:%HOMEPATH%\Downloads\AdsManager.bat"
 cls
 echo *************************************************
 echo *                                               *
@@ -136,7 +136,7 @@ echo *                                               *
 echo *************************************************
 IF NOT EXIST %appdata%\Spotify\Spotify.exe echo Notice: Spotify.exe not found, run it manually.
 IF EXIST %appdata%\Spotify\Spotify.exe start %appdata%\Spotify\Spotify.exe
-del /S /F /Q "%HOMEPATH%\Downloads\AdsManager.bat"
+del /S /F /Q "C:%HOMEPATH%\Downloads\AdsManager.bat"
 cls
 echo *************************************************
 echo *                                               *
