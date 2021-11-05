@@ -366,8 +366,8 @@ echo 7 - Pop-up Lyrics
 echo 8 - Shuffle+
 echo 9 - Trash Bin
 echo 10 - Web Now Playing
-If /i "%selectedlanguage%"=="1" echo 99 - Quit
-If /i "%selectedlanguage%"=="2" echo 99 - Quitter
+If /i "%selectedlanguage%"=="1" echo 99 - Back
+If /i "%selectedlanguage%"=="2" echo 99 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p extensionchoice="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p extensionchoice="Votre choix : "
@@ -424,8 +424,8 @@ If /i "%selectedlanguage%"=="2" echo Laquelle voulez-vous activer ?
 echo 1 - Reddit
 echo 2 - New Releases
 echo 3 - Lyrics Plus
-If /i "%selectedlanguage%"=="1" echo 99 - Quit
-If /i "%selectedlanguage%"=="2" echo 99 - Quitter
+If /i "%selectedlanguage%"=="1" echo 99 - Back
+If /i "%selectedlanguage%"=="2" echo 99 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p appchoice="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p appchoice="Votre choix : "
