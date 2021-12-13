@@ -28,15 +28,18 @@ if exist C:%HOMEPATH%\spicetify-cli\spicetify.exe (
     C:%HOMEPATH%\spicetify-cli\spicetify.exe -v > C:%HOMEPATH%\spicetify-cli\version.txt
     SET /p current=<C:%HOMEPATH%\spicetify-cli\version.txt
 ) else (
-	SET current="None"
+	SET current=None
+)
+if "%current%"=="None" (
 	If /i "%selectedlanguage%"=="1" echo Spicetify is not installed yet
     If /i "%selectedlanguage%"=="2" echo Spicetify n'est pas encore install‚
+) else (
+	If /i "%selectedlanguage%"=="1" echo Your actual version of Spicetify : v%current%
+	If /i "%selectedlanguage%"=="2" echo Votre version actuelle de Spicetify : v%current%
 )
 if "%latest%"=="" (
 	for /f "tokens=1,* delims=:" %%A in ('curl -ks https://api.github.com/repos/khanhas/spicetify-cli/releases/latest ^| find "tag_name"') do (
 	set latest=%%B)
-) else (
-	If /i "%selectedlanguage%"=="1" echo You are in %current%
 )
 set latest=%latest:",=%
 set latest=%latest:"v=%
