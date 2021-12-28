@@ -442,8 +442,8 @@ C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
 echo *************************************************
 echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *       The extension is now active         *
-If /i "%selectedlanguage%"=="2" echo *    L'extension est maintenant active      *
+If /i "%selectedlanguage%"=="1" echo *         The extension is now active           *
+If /i "%selectedlanguage%"=="2" echo *      L'extension est maintenant active        *
 echo *                                               *
 echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
