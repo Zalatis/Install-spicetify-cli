@@ -38,7 +38,7 @@ if "%current%"=="None" (
 	If /i "%selectedlanguage%"=="2" echo Votre version actuelle de Spicetify : v%current%
 )
 if "%latest%"=="" (
-	for /f "tokens=1,* delims=:" %%A in ('curl -ks https://api.github.com/repos/khanhas/spicetify-cli/releases/latest ^| find "tag_name"') do (
+	for /f "tokens=1,* delims=:" %%A in ('curl -ks https://api.github.com/repositories/159981830/releases/latest ^| find "tag_name"') do (
 	set latest=%%B)
 )
 set latest=%latest:",=%
@@ -442,8 +442,8 @@ C:%HOMEPATH%\spicetify-cli\spicetify.exe apply
 cls
 echo *************************************************
 echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *         The extension is now active           *
-If /i "%selectedlanguage%"=="2" echo *      L'extension est maintenant active        *
+If /i "%selectedlanguage%"=="1" echo *       The extension is now active         *
+If /i "%selectedlanguage%"=="2" echo *    L'extension est maintenant active      *
 echo *                                               *
 echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
