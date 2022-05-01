@@ -72,7 +72,7 @@ If /i "%selectedlanguage%"=="1" echo 4 - Apply again or change the theme
 If /i "%selectedlanguage%"=="1" echo 5 - Activate an extension
 If /i "%selectedlanguage%"=="1" echo 6 - Activate a custom application
 If /i "%selectedlanguage%"=="1" echo 7 - Put back the Spotify base theme
-If /i "%selectedlanguage%"=="1" echo 8 - Toggle Devtool
+If /i "%selectedlanguage%"=="1" echo 8 - Enable Devtool
 If /i "%selectedlanguage%"=="1" echo 9 - Toggle ads (test version)
 If /i "%selectedlanguage%"=="1" echo 10 - Change language
 If /i "%selectedlanguage%"=="1" echo 99 - Quit
@@ -85,7 +85,7 @@ If /i "%selectedlanguage%"=="2" echo 5 - Re-Appliquer ou changer le thŠme
 If /i "%selectedlanguage%"=="2" echo 6 - Activer une extension
 If /i "%selectedlanguage%"=="2" echo 7 - Activer une application custom
 If /i "%selectedlanguage%"=="2" echo 8 - Remettre le thŠme de base de Spotify
-If /i "%selectedlanguage%"=="2" echo 9 - Activer/D‚sactiver le devtool
+If /i "%selectedlanguage%"=="2" echo 9 - Activer le devtool
 If /i "%selectedlanguage%"=="2" echo 10 - Bloquer/D‚bloquer les pubs (version test)
 If /i "%selectedlanguage%"=="2" echo 11 - Changer de langue
 If /i "%selectedlanguage%"=="2" echo 99 - Quitter
@@ -100,7 +100,7 @@ If /i "%reponse1%"=="5" goto ApplyTheme
 If /i "%reponse1%"=="6" goto ActivateExtension
 If /i "%reponse1%"=="7" goto ActivateCustomApp
 If /i "%reponse1%"=="8" goto RestoreSpotify
-If /i "%reponse1%"=="9" goto DevTool
+If /i "%reponse1%"=="9" goto EnableDevTool
 If /i "%reponse1%"=="10" goto DisableAdsMenu
 If /i "%reponse1%"=="11" goto language
 If /i "%reponse1%"=="99" exit
@@ -459,23 +459,6 @@ If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au me
 pause > nul
 goto ActivateCustomApp
 
-
-
-:EnableDevTool
-cls
-C:%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *           DevTool is now active !             *
-If /i "%selectedlanguage%"=="2" echo *      Le DevTool est maintenant actif !        *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto menu
-
 :RestoreSpotify
 cls
 C:%HOMEPATH%\spicetify-cli\spicetify.exe restore backup
@@ -491,51 +474,14 @@ If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au me
 pause > nul
 goto menu
 
-:DevTool
-cls
-If /i "%selectedlanguage%"=="1" echo What do you want to do ?
-If /i "%selectedlanguage%"=="1" echo 1 - Activate DevTool
-If /i "%selectedlanguage%"=="1" echo 2 - Disable DevTool
-If /i "%selectedlanguage%"=="1" echo 2 - Back
-If /i "%selectedlanguage%"=="2" echo Que voulez-vous faire ?
-If /i "%selectedlanguage%"=="2" echo 1 - Activer le DevTool
-If /i "%selectedlanguage%"=="2" echo 2 - D‚sactiver le DevTool
-If /i "%selectedlanguage%"=="2" echo 3 - Retour
-echo.
-SET /p reponse3="Votre choix : "
-If /i "%reponse3%"=="1" goto EnableDevTool
-If /i "%reponse3%"=="2" goto DisableDevTool
-If /i "%reponse3%"=="3" goto menu
-If /i "%selectedlanguage%"=="1" ECHO "%reponse3%" is not a valid number !
-If /i "%selectedlanguage%"=="2" ECHO "%reponse3%" n'est pas un num‚ro valide !
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto DevTool
-
 :EnableDevTool
 cls
-C:%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtool
+C:%HOMEPATH%\spicetify-cli\spicetify.exe enable-devtools
 cls
 echo *************************************************
 echo *                                               *
 If /i "%selectedlanguage%"=="1" echo *           DevTool is now active !             *
 If /i "%selectedlanguage%"=="2" echo *      Le DevTool est maintenant actif !        *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto menu
-
-:DisableDevTool
-cls
-C:%HOMEPATH%\spicetify-cli\spicetify.exe disable-devtool
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *          DevTool is now inactive !            *
-If /i "%selectedlanguage%"=="2" echo *     Le DevTool est maintenant inactif !       *
 echo *                                               *
 echo *************************************************
 If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
