@@ -10,6 +10,6 @@ Menu for installing spicetify-cli it also include a spotify ads blocker
 Spicetify-cli : 
 https://github.com/khanhas/spicetify-cli
 
-AdsManager hosts inputs :
-https://github.com/x0uid/SpotifyAdBlock
+Spicetify Markeplace :
+https://github.com/spicetify/spicetify-marketplace
 
