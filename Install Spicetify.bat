@@ -91,7 +91,7 @@ If /i "%selectedlanguage%"=="2" SET /p reponse1="Votre choix : "
 If /i "%reponse1%"=="1" goto InstallSpotify
 If /i "%reponse1%"=="2" goto InstallSpicetify
 If /i "%reponse1%"=="3" goto UpdateSpicetify
-If /i "%response1%"=="4" goto InstallMarketplace
+If /i "%reponse1%"=="4" goto InstallMarketplace
 If /i "%reponse1%"=="5" goto ActivateExtension
 If /i "%reponse1%"=="6" goto ActivateCustomApp
 If /i "%reponse1%"=="7" goto RestoreSpotify
@@ -190,23 +190,8 @@ If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au me
 pause > nul
 goto menu
 
-:Reapply
-cls
-%LOCALAPPDATA%\spicetify\spicetify.exe backup
-%LOCALAPPDATA%\spicetify\spicetify.exe apply
-cls
-echo *************************************************
-echo *                                               *
-If /i "%selectedlanguage%"=="1" echo *                Enjoy Spotify !                *
-If /i "%selectedlanguage%"=="2" echo *             Profitez de Spotify !             *
-echo *                                               *
-echo *************************************************
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto menu
-
 :ActivateExtension
+cls
 SET "extensionchoice="
 SET "extensionname="
 cls
@@ -235,7 +220,7 @@ If /i "%selectedlanguage%"=="2" echo 99 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p extensionchoice="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p extensionchoice="Votre choix : "
-If %extensionchoice% NEQ 1 If %extensionchoice% NEQ 1 If %extensionchoice% NEQ 2 If %extensionchoice% NEQ 3 If %extensionchoice% NEQ 4 If %extensionchoice% NEQ 5 If %extensionchoice% NEQ 6 If %extensionchoice% NEQ 7 If %extensionchoice% NEQ 8 If %extensionchoice% NEQ 9 If %extensionchoice% NEQ 10 If %extensionchoice% NEQ 99 goto ErrorExtension
+If %extensionchoice% NEQ 1 If %extensionchoice% NEQ 2 If %extensionchoice% NEQ 3 If %extensionchoice% NEQ 4 If %extensionchoice% NEQ 5 If %extensionchoice% NEQ 6 If %extensionchoice% NEQ 7 If %extensionchoice% NEQ 8 If %extensionchoice% NEQ 9 If %extensionchoice% NEQ 10 If %extensionchoice% NEQ 99 goto ErrorExtension
 If /i "%extensionchoice%"=="1" SET extensionname=autoSkipExplicit.js
 If /i "%extensionchoice%"=="2" SET extensionname=autoSkipVideo.js
 If /i "%extensionchoice%"=="3" SET extensionname=bookmark.js
@@ -292,7 +277,7 @@ If /i "%selectedlanguage%"=="2" echo 99 - Retour
 echo.
 If /i "%selectedlanguage%"=="1" SET /p appchoice="Your choice : "
 If /i "%selectedlanguage%"=="2" SET /p appchoice="Votre choix : "
-If %appchoice% NEQ 1 If %appchoice% NEQ 1 If %appchoice% NEQ 2 If %appchoice% NEQ 3 If %appchoice% NEQ 99 goto ErrorCustomApp
+If %appchoice% NEQ 1 If %appchoice% NEQ 2 If %appchoice% NEQ 3 If %appchoice% NEQ 99 goto ErrorCustomApp
 If /i "%appchoice%"=="1" SET appname=reddit
 If /i "%appchoice%"=="2" SET appname=new-releases
 If /i "%appchoice%"=="3" SET appname=lyrics-plus
