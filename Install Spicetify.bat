@@ -257,15 +257,14 @@ If /i "%extensionchoice%"=="5" SET extensionname=keyboardShortcut.js
 If /i "%extensionchoice%"=="6" SET extensionname=loopyLoop.js
 If /i "%extensionchoice%"=="7" (
 	if exist %LOCALAPPDATA%\spicetify\Extensions\obsnowplaying.js (
-		SET extensionname=obsnowplaying.js
-		) else (
-			cls
-			SET extensionname=obsnowplaying.js
-			If /i "%selectedlanguage%"=="1" echo Currently downloading the extension obsnowplaying.js
-			If /i "%selectedlanguage%"=="2" echo T‚l‚chargement en cours de l'extension obsnowplaying.js
-			%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/tools/obsnowplaying.js -Destination %LOCALAPPDATA%\spicetify\Extensions\obsnowplaying.js" 
-		)
+		del /S /F /Q %LOCALAPPDATA%\spicetify\Extensions\obsnowplaying.js
 	)
+	cls
+	If /i "%selectedlanguage%"=="1" echo Currently downloading the extension obsnowplaying.js
+	If /i "%selectedlanguage%"=="2" echo T‚l‚chargement en cours de l'extension obsnowplaying.js
+	%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/download/obsnowplaying.js -Destination %LOCALAPPDATA%\spicetify\Extensions\obsnowplaying.js"
+	SET extensionname=obsnowplaying.js
+)
 If /i "%extensionchoice%"=="8" SET extensionname=popupLyrics.js
 If /i "%extensionchoice%"=="9" SET extensionname=shuffle+.js
 If /i "%extensionchoice%"=="10" SET extensionname=trashbin.js
@@ -307,8 +306,8 @@ SET "appname="
 cls
 echo  ************************************************************
 echo  *                                                          *
-If /i "%selectedlanguage%"=="1" echo  *              Activate a custom app             *
-If /i "%selectedlanguage%"=="2" echo  *         Activer une application custom         *
+If /i "%selectedlanguage%"=="1" echo  *                   Activate a custom app                  *
+If /i "%selectedlanguage%"=="2" echo  *              Activer une application custom              *
 echo  *                                                          *
 echo  ************************************************************
 echo.
@@ -344,6 +343,25 @@ If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au me
 pause > nul
 goto menu
 
+:EnableDevTool
+cls
+if not exist %LOCALAPPDATA%\spicetify\spicetify.exe (
+    goto SpicetifyNotInstalled
+)
+%LOCALAPPDATA%\spicetify\spicetify.exe enable-devtools
+cls
+echo  ************************************************************
+echo  *                                                          *
+If /i "%selectedlanguage%"=="1" echo  *                DevTool is now active !                   *
+If /i "%selectedlanguage%"=="2" echo  *           Le DevTool est maintenant actif !              *
+echo  *                                                          *
+echo  ************************************************************
+echo.
+If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
+If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
+pause > nul
+goto menu
+
 :ErrorCustomApp
 If /i "%selectedlanguage%"=="1" echo "%appchoice%" is not a valid number !
 If /i "%selectedlanguage%"=="2" echo "%appchoice%" n'est pas un num‚ro valide !
@@ -363,25 +381,6 @@ echo  ************************************************************
 echo  *                                                          *
 If /i "%selectedlanguage%"=="1" echo  *                   Spotify, the return  !                 *
 If /i "%selectedlanguage%"=="2" echo  *                   Spotify, le retour !                   *
-echo  *                                                          *
-echo  ************************************************************
-echo.
-If /i "%selectedlanguage%"=="1" echo Press any key to return to the menu.
-If /i "%selectedlanguage%"=="2" echo Appuyez sur une touche pour retourner au menu.
-pause > nul
-goto menu
-
-:EnableDevTool
-cls
-if not exist %LOCALAPPDATA%\spicetify\spicetify.exe (
-    goto SpicetifyNotInstalled
-)
-%LOCALAPPDATA%\spicetify\spicetify.exe enable-devtools
-cls
-echo  ************************************************************
-echo  *                                                          *
-If /i "%selectedlanguage%"=="1" echo  *                DevTool is now active !                   *
-If /i "%selectedlanguage%"=="2" echo  *           Le DevTool est maintenant actif !              *
 echo  *                                                          *
 echo  ************************************************************
 echo.
