@@ -181,7 +181,7 @@ cls
 if not exist %LOCALAPPDATA%\spicetify\spicetify.exe (
     goto SpicetifyNotInstalled
 )
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/Zalatis/my-tools/main/SpicetifyMarketplace.ps1" | Invoke-Expression"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass "Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.ps1" | Invoke-Expression"
 cls
 echo  ************************************************************
 echo  *                                                          *
