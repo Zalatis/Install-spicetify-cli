@@ -122,7 +122,7 @@ goto menu
 
 :InstallSpotify
 cls
-%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://download.scdn.co/SpotifySetup.exe -Destination C:%HOMEPATH%\Downloads\SpotifySetup.exe"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Invoke-WebRequest -Uri 'https://download.scdn.co/SpotifySetup.exe' -OutFile 'C:%HOMEPATH%\Downloads\SpotifySetup.exe'"
 cls
 C:%HOMEPATH%\Downloads\SpotifySetup.exe /Silent
 cls
@@ -262,7 +262,7 @@ If /i "%extensionchoice%"=="7" (
 	cls
 	If /i "%selectedlanguage%"=="1" echo Currently downloading the extension obsnowplaying.js
 	If /i "%selectedlanguage%"=="2" echo T‚l‚chargement en cours de l'extension obsnowplaying.js
-	%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Start-BitsTransfer -Source https://zalati.fr/download/obsnowplaying.js -Destination %LOCALAPPDATA%\spicetify\Extensions\obsnowplaying.js"
+	%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -command "Invoke-WebRequest -Uri 'https://zalati.fr/download/obsnowplaying.js' -OutFile '%LOCALAPPDATA%\spicetify\Extensions\obsnowplaying.js'"
 	SET extensionname=obsnowplaying.js
 )
 If /i "%extensionchoice%"=="8" SET extensionname=popupLyrics.js
