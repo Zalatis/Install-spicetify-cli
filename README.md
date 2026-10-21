@@ -1,5 +1,5 @@
 # Install-spicetify-cli
-Menu for installing spicetify-cli it also include a spotify ads blocker
+Menu for installing spicetify-cli and a bunch of add-ons.
 
 ## Preview :
 
